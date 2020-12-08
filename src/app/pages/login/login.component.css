@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+::ng-deep .mat-snack-bar-container{
+  color: #721c24 !important;
+  background-color: #f8d7da !important;
+  border-color: #f5c6cb !important;
+}
+::ng-deep .mat-simple-snackbar-action {
+  color: #721c24;
+}
