@@ -1,0 +1,11 @@
+.formulario {
+    min-width: 100%;
+}
+
+button.small {
+    line-height: 24px;
+}
+
+mat-form-field {
+    width: 100%;
+}

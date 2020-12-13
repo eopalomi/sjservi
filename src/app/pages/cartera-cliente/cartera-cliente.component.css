@@ -1,0 +1,68 @@
+/* GRILLAS PARA AJUSTAR LAS PAGINAS */
+.grilla {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    
+    /*background: lightyellow;*/
+}
+
+
+.grilla div {
+    /*background: lightcyan;*/
+    padding: 1em;
+}
+/*
+.grilla div:hover {
+    border: 1px solid lightsalmon
+}
+*/
+/*
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    font-size: 3em;
+}
+*/
+
+.grilla2 {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.grilla2 div {
+    /*background: lightcyan;*/
+    padding: 1em;
+}
+
+/*.grilla2 div:hover {
+    border: 1px solid lightsalmon
+}
+*/
+.item {
+    justify-self: center;
+    width: 90%;
+}
+
+/* ESTILO DEL CONTENEDOR */
+.container {
+    margin: 1em 1em 1em 1em;
+    min-height: 95%;
+    min-width: 95%;
+}
+
+/* ESTILO DEL TIUTLO */
+.title {
+    background-color: #288cdc;
+    text-align: center;
+    vertical-align: middle !important;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1em;
+    height: 35px;
+    font-size: medium;
+    line-height: 35px; /* se intento centrar */
+    font-weight: bold; /* letras en negrita */
+    border-radius: 4px;
+}

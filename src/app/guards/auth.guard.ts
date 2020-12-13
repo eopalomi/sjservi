@@ -10,7 +10,6 @@ export class AuthGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router){}
 
   canActivate(): boolean {
-    
     if ( this.auth.estaAutenticado() ) {
       return true;
     } else {
@@ -19,5 +18,4 @@ export class AuthGuard implements CanActivate {
       return false;
     }
   }
-  
 }

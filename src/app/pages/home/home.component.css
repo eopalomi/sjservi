@@ -38,3 +38,9 @@
   .active {
     color: #008CBA;
   }
+
+  /* COLOR DE LA CABECERA DEL NAVBAR */
+  .mat-toolbar.mat-primary {
+    background: #1a2129;
+    color: #fff;
+}

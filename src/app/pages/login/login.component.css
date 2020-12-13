@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   margin: 100px 0px;
+  border-radius: 55px;
 }
 
 .mat-form-field {
@@ -17,6 +18,7 @@ mat-card-content {
 .button {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 ::ng-deep .mat-snack-bar-container{
@@ -26,4 +28,8 @@ mat-card-content {
 }
 ::ng-deep .mat-simple-snackbar-action {
   color: #721c24;
+}
+
+mat-card{
+  width: 300px;
 }

@@ -19,8 +19,38 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   // Rutas del Menu Navegacion
   Rutas: { ruta: string, nombreRuta: string }[] = [
-    { ruta: '/usuarios', nombreRuta: 'Usuario' },
-    { ruta: '/cartera-clientes', nombreRuta: 'Cartera de Clientes' }
+    { ruta: 'usuarios', nombreRuta: 'Usuario' },
+    { ruta: 'cartera', nombreRuta: 'Cartera de Clientes' }
+  ];
+
+  menu: any[] = [
+    {
+      displayName: 'Admin',
+      iconName: 'admin_panel_settings',
+      route: '**',
+    },
+    {
+      displayName: 'Ventas',
+      iconName: 'request_quote',
+      children: [
+        {
+          displayName: 'Cartera',
+          iconName: 'local_mall',
+          route: 'cartera'
+        }
+      ]
+    },
+    {
+      displayName: 'Perfiles',
+      iconName: 'group',
+      children: [
+        {
+          displayName: 'Usuarios',
+          iconName: 'person',
+          route: 'usuarios'
+        }
+      ]
+    }
   ];
 
   // Menu Responsive
@@ -28,7 +58,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private auth: AuthService, private router: Router) {
+  constructor(
+    changeDetectorRef: ChangeDetectorRef, 
+    media: MediaMatcher, 
+    private auth: AuthService, 
+    private router: Router
+  ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
