@@ -1,0 +1,64 @@
+<div class="container mat-elevation-z8">
+  <!-- TITULO DEL MODULO -->
+  <div class="title">{{CONTENT.conten_name}}</div>
+
+  <!-- PAGINAS DEL MODULO -->
+  <div fxLayout="row" fxLayoutAlign="space-around start" fxLayout.xs="column" fxLayoutGap="25px" [style.margin-left]="'10px'" [style.margin-right]="'10px'" fxFlexFill>
+    <ng-container *ngFor="let iterar of CONTENT.pages">
+      <div *ngIf="iterar.row == 1" fxFlex={{iterar.row_scale}} fxFlex.xs="1" >
+        <ng-container *ngIf="iterar.type_page == 'F'">
+          <app-form-page [PAGE_CONFIG]="iterar.data_page"></app-form-page>
+        </ng-container>
+        <ng-container *ngIf="iterar.type_page == 'R'">
+          <app-table-page [PAGE_CONFIG]="iterar.data_page"></app-table-page>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <br>
+  <div fxLayout="row" fxLayoutAlign="space-around start" fxLayout.xs="column" fxLayoutGap="25px" [style.margin-left]="'10px'" [style.margin-right]="'10px'" fxFlexFill>
+    <ng-container *ngFor="let iterar of CONTENT.pages">
+      <div *ngIf="iterar.row == 2" fxFlex={{iterar.row_scale}} fxFlex.xs="1">
+        <ng-container *ngIf="iterar.type_page == 'F'">
+          <app-form-page [PAGE_CONFIG]="iterar.data_page"></app-form-page>
+        </ng-container>
+        <ng-container *ngIf="iterar.type_page == 'R'">
+          <app-table-page [PAGE_CONFIG]="iterar.data_page"></app-table-page>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<!--
+<ng-container *ngFor="let iterar of CONTENT.pages">
+  
+  <ng-container *ngIf="iterar.type_page == 'F'">
+    <app-form-page [PAGE_CONFIG]="iterar.data_page"></app-form-page>
+  </ng-container>
+  
+  <ng-container *ngIf="iterar.type_page == 'R'">
+    <app-table-page [PAGE_CONFIG]="iterar.data_page"></app-table-page>
+  </ng-container>
+</ng-container>
+
+
+
+
+  <div class="bounds">
+    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+  
+      <div fxFlex="50" class="sec1" fxFlex.xs="60">
+        first-section
+      </div>
+      <div fxFlex="10" class="sec2">
+        second-section
+      </div>
+      <div fxFlex="10" class="sec3" fxFlex.xs="15">
+        third-section
+      </div>
+  
+    </div>
+  </div>
+-->
+<!-- PAGINA FORMULARIO -->
+<!-- PAGINA TABLA -->

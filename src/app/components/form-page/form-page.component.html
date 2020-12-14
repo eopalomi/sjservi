@@ -1,18 +1,17 @@
 <div style="width: 100%;">
-    <div style="background: #288cdc; color:white; vertical-align: middle; text-align: center; margin-bottom: 1em; border-radius: 2px;" class="mat-elevation-z3">Filtros</div>
+    <div class="page_title mat-elevation-z3">{{PAGE_CONFIG.page_title}}</div>
     <form class="formulario">
         <!-- CAMPO  -->
-        <mat-form-field appearance="standard">
-            <mat-label>Cartera</mat-label>
+        <mat-form-field *ngFor="let row of PAGE_CONFIG.page_rows" appearance="standard">
+            <mat-label>{{row.col01}}</mat-label>
             <mat-select>
-                <mat-option></mat-option>
-                <mat-option>dato</mat-option>
+                <mat-option *ngFor="let item of row.col01_cb">{{item}}</mat-option>
             </mat-select>
         </mat-form-field>
         
         <!-- BOTONES -->
-        <div style="display: flex; justify-content: center;">
-            <button mat-raised-button color="primary" class="small">Filtrar</button>
+        <div class="button" *ngFor="let btn_row of PAGE_CONFIG.button_page">
+            <button mat-raised-button color="primary" class="small">{{btn_row.button_name}}</button>
         </div>
     </form>
 </div>

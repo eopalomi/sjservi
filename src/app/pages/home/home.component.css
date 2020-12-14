@@ -6,41 +6,91 @@
     bottom: 0;
     left: 0;
     right: 0;
-  }
+}
   
-  .example-is-mobile .example-toolbar {
-    position: fixed;
-    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
-    z-index: 2;
-  }
-  
-  h1.example-app-name {
-    margin-left: 8px;
-  }
-  
-  .example-sidenav-container {
-    /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-       causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-    flex: 1;
-  }
-  
-  .example-is-mobile .example-sidenav-container {
-    /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
-       `<body>` to be our scrolling element for mobile layouts. */
-    flex: 1 0 auto;
-  }
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
 
-  /* CSS ADICIONADO QUE NO ES DEL NAVBAR DE EJEMPLO*/
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .active {
-    color: #008CBA;
-  }
+h1.example-app-name {
+  margin-left: 8px;
+}
 
-  /* COLOR DE LA CABECERA DEL NAVBAR */
-  .mat-toolbar.mat-primary {
-    background: #1a2129;
-    color: #fff;
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+      causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+      `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+/* CSS ADICIONADO QUE NO ES DEL NAVBAR DE EJEMPLO*/
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.active {
+  color: #008CBA;
+}
+
+/* COLOR DE LA CABECERA DEL NAVBAR */
+.mat-toolbar.mat-primary {
+  background: #304ACA;
+  color: #fff;
+}
+
+/* LINK ACTIVO DEL MENU */
+
+.activo {
+  font-weight: bold;
+}
+
+/* ESTILOS DE LA BARRA LATERAL DE NAVEGACION*/
+.header-panel {
+  background: #5BADEF;
+  color: white;
+  margin-bottom: 1px;
+  border-radius: 4px;
+}
+
+.header-panel:hover {
+  background: #68b6f5 !important;
+  
+}
+.header-panel:focus {
+  background: #5BADEF !important;
+  
+}
+
+.header-panel-child {
+  background: #5BADEF;
+  margin-bottom: 1px;
+}
+
+.header-panel-child:hover {
+  background: #68b6f5 !important;
+  
+}
+
+.mat-expansion-panel-header.mat-expanded,
+.mat-expansion-panel-header.mat-expanded:focus {
+    background-color:#5BADEF !important;
+}
+
+.mat-expansion-panel-header.mat-expanded:hover{
+    background-color: #68b6f5 !important;
+}
+
+.mat-expansion-indicator::after {
+  color: white !important;
+}
+
+::ng-deep .mat-expansion-indicator:after {
+  color: white;
 }

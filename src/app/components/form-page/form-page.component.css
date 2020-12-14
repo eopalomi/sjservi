@@ -9,3 +9,19 @@ button.small {
 mat-form-field {
     width: 100%;
 }
+
+/* ESTILOS DEL BOTON */
+.page_title {
+    background: #2BBBAD;
+    color:white;
+    vertical-align: middle;
+    text-align: center;
+    margin-bottom: 1em;
+    border-radius: 2px;
+}
+
+/* ESTILOS DEL BOTON */
+.button {
+    display: flex; 
+    justify-content: center;
+}

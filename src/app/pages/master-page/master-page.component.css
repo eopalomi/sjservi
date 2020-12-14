@@ -1,0 +1,57 @@
+/* ESTILO DEL CONTENEDOR */
+.container {
+    margin: 1em 1em 1em 1em;
+    min-height: 95%;
+    min-width: 95%;
+}
+
+/* ESTILO DEL TITULO */
+.title {
+    background-color: #2BBBAD;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    text-align: center;
+    vertical-align: middle !important;
+    margin-bottom: 1em;
+    height: 35px;
+    font-size: medium;
+    line-height: 35px; /* se intento centrar */
+    font-weight: bolder; /* letras en negrita */   
+}
+
+
+
+
+
+.bounds {
+    background-color:#ddd;
+    height :400px;
+}
+
+.sec1 {
+    background: red;
+    color:white;
+    text-transform: uppercase
+}
+
+.sec2 {
+    background: yellow;
+    color:blue;
+}
+
+.sec3 {
+    background: blue;
+    color:white;
+    text-transform: uppercase
+}
+
+.sec1, .sec2, .sec3 {
+    padding-top:20px;
+    text-align:center
+}
+
+.content {
+min-width: 300px;
+/*height: 400px;*/
+}

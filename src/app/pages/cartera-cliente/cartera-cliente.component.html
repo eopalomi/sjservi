@@ -3,13 +3,13 @@
     <div class="title">CARTERA DE CLIENTE</div>
     <!-- PAGINAS DEL MODULO -->
     <div class="grilla">
-        <div class="item"><app-form-page></app-form-page></div>
-        <div class="item"><app-table-page [DATA_PAGE]="DATA_PAGE_02" [TITLE_PAGE]="'Lista Vendedores'" [TITLE_COLUMNS]="TITLE_PAGE_02" [OPC_PAGE]="OPC_PAGE_02" [TYPE_COLUMN]="TYPE_COLUMN_02"></app-table-page></div>
+        <div class="item"><app-form-page [PAGE_CONFIG]="PAGE_CONFIG"></app-form-page></div>
+        <div class="item"><app-table-page [PAGE_CONFIG]="PAGE_CONFIG_TABLA_02"></app-table-page></div>
     </div>
     <br>
     <div class="grilla2">
         <div>
-            <app-table-page [DATA_PAGE]="DATA_PAGE" [TITLE_PAGE]="'Lista de Clientes'"  [TITLE_COLUMNS]="TITLE_PAGE" [OPC_PAGE]="OPC_PAGE" [TYPE_COLUMN]="TYPE_COLUMN"></app-table-page>
+            <app-table-page [PAGE_CONFIG]="PAGE_CONFIG_TABLA"></app-table-page>
         </div>
     </div>
 </div>

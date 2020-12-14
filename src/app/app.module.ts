@@ -15,6 +15,8 @@ import { CarteraClienteComponent } from './pages/cartera-cliente/cartera-cliente
 import { GestionUsuariosComponent } from './pages/gestion-usuarios/gestion-usuarios.component';
 import { PaginaInicioComponent } from './pages/pagina-inicio/pagina-inicio.component';
 import { FormPageComponent } from './components/form-page/form-page.component';
+import { MasterPageComponent } from './pages/master-page/master-page.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FormPageComponent } from './components/form-page/form-page.component';
     CarteraClienteComponent,
     GestionUsuariosComponent,
     PaginaInicioComponent,
-    FormPageComponent
+    FormPageComponent,
+    MasterPageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { FormPageComponent } from './components/form-page/form-page.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

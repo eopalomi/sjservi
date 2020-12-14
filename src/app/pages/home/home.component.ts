@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       displayName: 'Admin',
       iconName: 'admin_panel_settings',
-      route: '**',
+      route: 'admin',
     },
     {
       displayName: 'Ventas',

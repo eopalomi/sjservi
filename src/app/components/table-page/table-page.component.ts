@@ -11,18 +11,10 @@ import { SelectionModel } from "@angular/cdk/collections";
   styleUrls: ['./table-page.component.css']
 })
 export class TablePageComponent implements OnInit {
-  @Input() DATA_PAGE;   // Datos de la Pagina
-  @Input() TITLE_PAGE;  // Titulos de la Pagina
-  @Input() TITLE_COLUMNS;  // Titulos de la Pagina
-  @Input() OPC_PAGE;    // Opciones de la Pagina
-  @Input() TYPE_COLUMN; // Tipos de Dato para las Columnas
-  maximoRowsPaginator: number = 100; // Numero Maximo Filas Paginador
-  
-  //displayedColumns: string[] = ['col00','col01','col02','col03','col04','col05','col06','col07','col08','col09','col10','col11'];          // Columnas a Mostrar Tabla
-  displayedColumns: string[]; // Columnas a Mostrar Tabla
+  @Input() PAGE_CONFIG;
+  displayedColumns: string[];          // Columnas a Mostrar Tabla
   dataSource: MatTableDataSource<any>; // Data Para la Tabla
-
-  //columnas_bucle: string[] = ['col01','col02','col03','col04','col05','col06','col07','col08','col09','col10','col11'];
+  maximoRowsPaginator: number = 100;   // Numero Maximo Filas Paginador
 
   @ViewChild(MatPaginator) paginator: MatPaginator; // **** - Para poder Paginar
   @ViewChild(MatSort) sort: MatSort;                // **** - Para poder Ordenar Columnas
@@ -30,8 +22,8 @@ export class TablePageComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // Buscar los Titulos de las Columnas en la Data
-    for (let rs of this.DATA_PAGE) { var columnasTabla: string[] = Object.keys(rs) } 
+    // Buscar los Nombres de las Columnas en la Data
+    for (let rs of this.PAGE_CONFIG.page_rows) { var columnasTabla: string[] = Object.keys(rs) } 
 
     //Retirar las Columnas de Color
     columnasTabla = this.removerItemArray('_color', columnasTabla);
@@ -39,7 +31,7 @@ export class TablePageComponent implements OnInit {
 
     // Inicializar las Variables
     this.displayedColumns = columnasTabla;                  // Asignar las Columnas a Mostrar
-    this.dataSource = new MatTableDataSource(this.DATA_PAGE); // Asignar la Data de la tabla
+    this.dataSource = new MatTableDataSource(this.PAGE_CONFIG.page_rows); // Asignar la Data de la tabla
     this.dataSource.paginator = this.paginator;    
   }
 
@@ -65,44 +57,44 @@ export class TablePageComponent implements OnInit {
   }
 
   getTitle(key: string) {
-    if (this.TITLE_COLUMNS[0][key] == undefined) {
+    if (this.PAGE_CONFIG.title_column[0][key] == undefined) {
       return key
     } else {
-      return this.TITLE_COLUMNS[0][key]
+      return this.PAGE_CONFIG.title_column[0][key]
     }
   }
 
   validarPaginador() {
-    if (this.OPC_PAGE == undefined) { return true }
-    else if (this.OPC_PAGE[0].paginator == true) { return true }
+    if (this.PAGE_CONFIG.opc_page == undefined) { return true }
+    else if (this.PAGE_CONFIG.opc_page[0].paginator == true) { return true }
     else { return false }
   }
 
   validarBuscador() {
-    if (this.OPC_PAGE == undefined) { return true }
-    else if (this.OPC_PAGE[0].buscador == true) { return true }
+    if (this.PAGE_CONFIG.opc_page == undefined) { return true }
+    else if (this.PAGE_CONFIG.opc_page[0].buscador == true) { return true }
     else { return false }
   }
 
   tipoDato(key: string, tipo: number) {
-    if (this.TYPE_COLUMN[0][key] == undefined) {
+    if (this.PAGE_CONFIG.type_column[0][key] == undefined) {
       return false
     } else {
-      if (this.TYPE_COLUMN[0][key] == tipo) { return true } 
+      if (this.PAGE_CONFIG.type_column[0][key] == tipo) { return true } 
       else { return false }
     }
   }
 
   obtenerCSS() {
-    if (this.OPC_PAGE == undefined) {
+    if (this.PAGE_CONFIG.opc_page == undefined) {
       return {
         'background': '#26a69a',
         'color': 'white'
       }
     }
-    else if (this.OPC_PAGE[0].cabecera == true)
+    else if (this.PAGE_CONFIG.opc_page[0].cabecera == true)
       return {
-        'background': '#288cdc',
+        'background': '#2BBBAD',
         'color': 'white'
       }
     else 
@@ -130,7 +122,6 @@ export class TablePageComponent implements OnInit {
     if (obj[columnClas] !== undefined) {
       return obj[columnClas];
     } else {
-      console.log('aqui 1');
       return 'fas fa-times';
     }
   }
@@ -146,17 +137,17 @@ export class TablePageComponent implements OnInit {
   }
 
   /************** DIALOG ***************/
-  openDialog(): void {
-    /*const dialogRef = this.dialog.open(PaginaTablaComponent, {
+  /*openDialog(): void {
+    const dialogRef = this.dialog.open(PaginaTablaComponent, {
       width: '400px',
       data: {name: 'Erick'}
-    });*/
+    });
 
     //let config = new MatDialogConfig();
     //let dialogRef:MatDialogRef<PaginaTablaModalComponent> = this.dialog.open(PaginaTablaModalComponent, config);
 
 
-    let DATA_PAGE1: { 
+    let PAGE_CONFIG.title_column1: { 
       col00: string; col05: string, col06:string, col06_color: string
     } [] = [
       { col00: '',  col05: 'Juan Alore', col06: 'ALM', col06_color: 'blue' },
@@ -176,33 +167,33 @@ export class TablePageComponent implements OnInit {
     ];
   
     // TITULOS DE LA PAGINA
-    let TITLE_COLUMNS1: { 
+    let PAGE_CONFIG.title_column1: { 
       col00: string, col05: string, col06:string
     } [] = [{ 
       col00: '',    col05: 'Vendedor',  col06: 'Area'
     }];
   
     // TIPO DE DATO
-    let TYPE_COLUMN1: { 
+    let PAGE_CONFIG.type_column1: { 
       col00: number, col05: number, col06: number
     } [] = [{ 
       col00: 4, col05: 1, col06: 2
     }];
   
     // OPCIONES DE LA PAGINA
-    let OPC_PAGE1: { paginator:boolean, cabecera: boolean, buscador: boolean}[] = [{
+    let PAGE_CONFIG.opc_page1: { paginator:boolean, cabecera: boolean, buscador: boolean}[] = [{
       paginator:true, cabecera: true, buscador: true
     }];
 
-    //dialogRef.componentInstance.DATA_PAGE   = DATA_PAGE1;
-    //dialogRef.componentInstance.TITLE_COLUMNS  = TITLE_COLUMNS1;
-    //dialogRef.componentInstance.OPC_PAGE    = OPC_PAGE1;
-    //dialogRef.componentInstance.TYPE_COLUMN = TYPE_COLUMN1;
+    //dialogRef.componentInstance.PAGE_CONFIG.title_column   = PAGE_CONFIG.title_column1;
+    //dialogRef.componentInstance.PAGE_CONFIG.title_column  = PAGE_CONFIG.title_column1;
+    //dialogRef.componentInstance.PAGE_CONFIG.opc_page    = PAGE_CONFIG.opc_page1;
+    //dialogRef.componentInstance.PAGE_CONFIG.type_column = PAGE_CONFIG.type_column1;
 
-    /*dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-    });*/
-  }
+    });
+  }*/
 
   /************** SELECTOR ***************/
   selection = new SelectionModel<any>(true, []);
